@@ -21,3 +21,14 @@ export const addUser = async (name, email) => {
     return null;
   }
 };
+
+// إضافة دالة الحذف
+export const deleteUser = async (id) => {
+  try {
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    return null;
+  }
+};
