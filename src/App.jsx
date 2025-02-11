@@ -1,5 +1,5 @@
-import  { useEffect, useState } from "react";
-import { fetchUsers, addUser } from "./api/users";
+import { useEffect, useState } from "react";
+import { fetchUsers, addUser, deleteUser } from "./api/users";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -25,6 +25,13 @@ function App() {
     }
   };
 
+  const handleDeleteUser = async (userId) => {
+    const deletedUser = await deleteUser(userId);
+    if (deletedUser) {
+      setUsers(users.filter(user => user._id !== userId));
+    }
+  };
+
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>🚀 قائمة المستخدمين</h1>
@@ -47,6 +54,7 @@ function App() {
         {users.map((user) => (
           <li key={user._id}>
             {user.name} - {user.email}
+            <button onClick={() => handleDeleteUser(user._id)}>حذف</button>
           </li>
         ))}
       </ul>
