@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://13.60.194.28:5000/users";
+const API_URL = "http://api.nb1.ma/users";
 
 export const fetchUsers = async () => {
   try {
