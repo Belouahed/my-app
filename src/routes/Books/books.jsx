@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function books() {
-  const baseURL = "http://localhost:5000/api/books";
+  const baseURL = "https://api.nb1.ma/api/books";
 
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
